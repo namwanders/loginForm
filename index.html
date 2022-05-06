@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Animated Login Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- type="text/css" is not necessary nowadays-->
+    <link rel="stylesheet" type="text/css" href="/Users/NaoyaFukada/ProgrammingPractice/Login-Form/Responsive-Animated/public/css/style.css">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="img">
+            <img src="/Users/NaoyaFukada/ProgrammingPractice/Login-Form/Responsive-Animated/public/images/selfie.svg">
+        </div>
+        <div class="login-container">
+            <form action="index.html">
+                <img class="avatar" src="/Users/NaoyaFukada/ProgrammingPractice/Login-Form/Responsive-Animated/public/images/undraw_male_avatar_323b.svg">
+                <h2>Welcome</h2>
+                <div class="input-div one">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div>
+                        <h5>Username</h5>
+                        <input class="input" type="text">
+                    </div>
+                    <div class="success">
+                        <i class="fas fa-check-circle" id="success"></i>
+                    </div>
+                </div>
+                <div class="input-div two">
+                    <div class="i">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div>
+                        <h5>Password</h5>
+                        <input class="input" type="password">
+                    </div>
+                    <div class="success">
+                        <i class="fas fa-check-circle" id="success"></i>
+                    </div>
+                </div>
+                <a href="#">Forgot Password?</a>
+                <input type="submit" class="btn" value="Login">
+            </form>
+        </div>
+    </div>
+    <script language="javascript">
+        const inputs=document.querySelectorAll('.input');
+        function focusFunc(){
+            let parent=this.parentNode.parentNode;
+            parent.classList.add('focus');
+        }
+        function blurFunc(){
+            let parent=this.parentNode.parentNode;
+            if (this.value == ""){
+                parent.classList.remove('focus');
+            }
+        }
+        inputs.forEach(input=> {
+            input.addEventListener('focus', focusFunc);
+            input.addEventListener('blur', blurFunc);
+        });
+        const successful=document.querySelectorAll('#success');
+        function changeFunc(){
+            this.classList.add('valid');
+        }
+        successful.addEventListener('change', changeFunc);
+    </script>
+</body>
+</html>
